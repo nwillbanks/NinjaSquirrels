@@ -3,61 +3,86 @@
 
 <head>
 
-        <meta charset="UTF-8">
-        <title>NYT Searcher</title>
+    <meta charset="UTF-8">
+    <title>NYT Searcher</title>
 
-        <!--External CSS-->
-      
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-                crossorigin="anonymous">
-                <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
 <body>
-<div class="wrapper">
 
 <div class="container">
     <div class="jumbotron">
-        <h1>Ninja Squirrel</h1>
+        <h1>Sound Plane</h1>
+        <h4>Your best way to find great music</h4>
         <!--Search Parameters Div-->
         <div class="card" id="parametersDiv">
             <div class="card-header">
-                Search Parameters
+                Enter your artist
             </div>
             <div class="card-body">
-                
-                
+                <form>
+                    <div class="form-group">
+                        <!--form setup for user artist entry-->
+                        <label for="enterArtist"></label>
+                        <input type="artist" class="form-control" id="inputArtist" placeholder="Artist Name">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>           
             </div>
         </div>
         <br>
-        <!--Results Div-->
-        <div class="card">
-            <div class="card-header">
-                    None
-            </div>
-            
-        
-        
-        
+
+        <!--Media Player Div-->
+        <div class="wrapper" id="playDiv">
+            <h3>Media Player</h3>
+            <br>
+            <br>
         </div>
 
+        <!--Table Div-->
+        <div class="wrapper">
+            <h3>Previously Played</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Artist</th>
+                  <th scope="col">Track</th>
+                  <th scope="col">Release Year</th>
+                  <th scope="col">Album</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Metallica</td>
+                  <td>One</td>
+                  <td>1988</td>
+                  <td>...And Justice For All<td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
 
+        <!--Pictures Div-->
+        <div class="wrapper" id="picDiv">
+            <h3>Pictures</h3>
+        </div>
 
-
-
+        <!--end container & jumbotron-->
+    </div>
+</div>
     
-    </div>
-</div>
-
-
-</div>
-
-<footer class="footer">
-    <div class="container">
+    <!--footer-->
+    <footer class="footer">
         <center>Copyright 2018</center>
-    </div>
-</footer>
+    </footer>
 
 </body>
 
