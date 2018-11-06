@@ -30,9 +30,13 @@
                     <div class="form-group">
                         <!--form setup for user artist entry-->
                         <label for="enterArtist"></label>
-                        <input type="artist" class="form-control" id="inputArtist" placeholder="Artist Name">
+                        <input type="artist" class="form-control" id="inputArtist" placeholder="Artist Name"> </br>
+                        <input type="artist" class="form-control" id="inputSong" placeholder="Song Name"> </br>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                                
+    
+                    
+                    <button class="btn btn-primary" id="add">Submit</button>
                 </form>           
             </div>
         </div>
@@ -42,6 +46,9 @@
         <div class="wrapper" id="playDiv">
             <h3>Media Player</h3>
             <br>
+            <div id ="player">
+                <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=14343282&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=240' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='240' allowTransparency='true'></iframe>
+            </div> <!-- <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=3135556&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=240' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='240' allowTransparency='true'></iframe> -->
             <br>
         </div>
 
@@ -83,6 +90,10 @@
     <footer class="footer">
         <center>Copyright 2018</center>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="javascript/logic.js"></script>
+
 
 </body>
 
