@@ -34,9 +34,13 @@
                     <div class="form-group">
                         <!--form setup for user artist entry-->
                         <label for="enterArtist"></label>
-                        <input type="artist" class="form-control" id="inputArtist" placeholder="Artist Name">
+                        <input type="artist" class="form-control" id="inputArtist" placeholder="Artist Name"> </br>
+                        <input type="artist" class="form-control" id="inputSong" placeholder="Song Name"> </br>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                                
+    
+                    
+                    <button class="btn btn-primary" id="add">Submit</button>
                 </form>           
             </div>
         </div>
@@ -47,6 +51,9 @@
             <h3>Media Player</h3>
             <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=3135556&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=90' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='90' allowTransparency='true'></iframe>
             <br>
+            <div id ="player">
+                <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=14343282&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=240' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='240' allowTransparency='true'></iframe>
+            </div> <!-- <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=3135556&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=240' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='240' allowTransparency='true'></iframe> -->
             <br>
         </div>
 
@@ -90,6 +97,9 @@
         <center>Copyright 2018</center>
     </footer>
 
+  
+
+
     <!-- FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
 
@@ -97,7 +107,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
     <!-- JAVASCRIPT-->
-    <script type="text/javascript" src="javascript/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="javascript/logic.js"></script>
     
 </body>
 
