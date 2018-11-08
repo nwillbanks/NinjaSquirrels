@@ -45,19 +45,19 @@ $("#add").on("click",function(event){
   }
   else if (artist === ""){
     // console.log("song only")
-     deezerApi = "http://api.deezer.com/search?q=track:"+ '"' + song +'"'
+     deezerApi = "https://api.deezer.com/search?q=track:"+ '"' + song +'"'
      flag = 1;
   }
   else if (song === ""){
     // console.log("artist only")
-     deezerApi = "http://api.deezer.com/search?q=artist:"+ '"' + artist +'"'
+     deezerApi = "https://api.deezer.com/search?q=artist:"+ '"' + artist +'"'
      flag = 2;
   }
   else {
     // console.log("song & artist")
     // console.log("artist : " + artist)
     // console.log("song : " + song)
-   deezerApi = "http://api.deezer.com/search?q=artist:"+ '"' + artist +'"'  +" track:"+ '"' + song +'"' 
+   deezerApi = "https://api.deezer.com/search?q=artist:"+ '"' + artist +'"'  +" track:"+ '"' + song +'"' 
    flag = 3;
   }
   //console.log(deezerApi)
