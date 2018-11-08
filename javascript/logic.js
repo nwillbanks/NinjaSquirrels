@@ -31,7 +31,6 @@ connectedRef.on("value", function(snap){
   }
 })
 
-
 //grabbing the artist from html
 $("#add").on("click",function(event){
   event.preventDefault()
@@ -66,7 +65,7 @@ $("#add").on("click",function(event){
 })
 
 
-// dezzer api
+// deezer api
 function play(a , flag){
   
   
@@ -92,42 +91,40 @@ function play(a , flag){
       album[i] = result[i].album.title
       writeUserData(playlistId[i],trackName[i],artistName[i],album[i])
       //writeUserData(playlistId[i])
+      music()
       test();
     }
-     // music()
+     //music()
     console.log (playlistId)
     //connectionRef.remove()
   })
 
-
 }
-
+//insert media player into html
 function music(){
+  $('#playDiv').empty()
   $('#playDiv').append(
-    "<iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=" + playlistId[1] + " &format=classic&color=007FEB&autoplay=true&playlist=true&width=700&height=240' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='240' allowTransparency='true'></iframe>"
+    "<iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=" + playlistId[1] + " &format=classic&color=007FEB&autoplay=true&playlist=true&width=700&height=90' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='90' allowTransparency='true'></iframe>"
   )
 }
 
-
+//define api values to be pulled
 function writeUserData(id,trackName,artist,album){
   connectionRef.push({
-    id : id,
-    trackName :trackName,
+    trackName : trackName,
     artist : artist,
     album : album,
   })
 }
-
+//pulling api values into table
 function test() {
   $("#values").empty()
   connectionRef.on("child_added",function(snapshot){
-//need to add #values
   $("#values").append(("<tr> " +
-   " <td> " + snapshot.val().id +" </td> "+
    " <td> " + snapshot.val().trackName +" </td> "+
    " <td> " + snapshot.val().artist +" </td> "+
-   " <td> " + snapshot.val().album +" </td> "+
-   " <td> " + snapshot.val().year + "</td> "));
+   " <td> " + snapshot.val().album +" </td> "
+   ));
 
 });
 

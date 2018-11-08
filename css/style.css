@@ -1,4 +1,24 @@
-#picDiv {
-	height: 200px;
-	max-width: 200px;
+
+#background {
+  background: no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+body {
+	text-align: center;
+}
+
+h1 {
+	font-family: 'Permanent Marker';
+}
+
+h4 {
+	font-family: 'Courgette';
+}
+
+h3 {
+	font-family: 'Permanent Marker';
 }
