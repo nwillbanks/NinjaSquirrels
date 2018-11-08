@@ -9,6 +9,9 @@
     <!--CSS RESET-->
     <link rel="css/reset.css">
 
+    <!-- GOOGLE FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Permanent+Marker" rel="stylesheet">
+    
     <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
@@ -18,7 +21,7 @@
 
 </head>
 
-<body>
+<body background="Images/background3.jpg">
 
 <div class="container">
     <div class="jumbotron">
@@ -27,9 +30,8 @@
         <!--Search Parameters Div-->
         <div class="card" id="parametersDiv">
             <div class="card-header">
-                Enter your artist
             </div>
-            <div class="card-body">Artist
+            <div class="card-body">Enter your artist and/or song title
                 <form>
                     <div class="form-group">
                         <!--form setup for user artist entry-->
@@ -38,8 +40,6 @@
                         <input type="artist" class="form-control" id="inputSong" placeholder="Song Name"> </br>
                     </div>
                                 
-    
-                    
                     <button class="btn btn-primary" id="add">Submit</button>
                 </form>           
             </div>
@@ -47,14 +47,10 @@
         <br>
 
         <!--Media Player Div-->
-        <div class="wrapper" id="playDiv">
-            <h3>Media Player</h3>
-            <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=3135556&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=90' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='90' allowTransparency='true'></iframe>
-            <br>
-            <div id ="player">
-                <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=14343282&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=240' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='240' allowTransparency='true'></iframe>
-            </div> <!-- <iframe id='dzplayer' dztype='dzplayer' src='https://www.deezer.com/plugins/player?type=tracks&id=3135556&format=classic&color=007FEB&autoplay=false&playlist=true&width=700&height=240' scrolling='no' frameborder='0' style='border:none; overflow:hidden;' width='700' height='240' allowTransparency='true'></iframe> -->
-            <br>
+        <div class="wrapper">
+          <h3>Media Player</h3>
+            <div class="wrapper" id="playDiv">
+            </div>
         </div>
 
         <!--Table Div-->
@@ -63,21 +59,13 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
+                  <th scope="col">Song Title</th>
                   <th scope="col">Artist</th>
-                  <th scope="col">Track</th>
-                  <th scope="col">Release Year</th>
                   <th scope="col">Album</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Daft Punk</td>
-                  <td>Harder Better Faster Stronger</td>
-                  <td>2001</td>
-                  <td>Single, Alive 2007<td>
-                </tr>
+              <tbody id="values">
+              
               </tbody>
             </table>
         </div>
