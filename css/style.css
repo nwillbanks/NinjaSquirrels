@@ -1,9 +1,8 @@
 
 #background {
-  background: no-repeat center center fixed;
   background-size: cover;
   height: 100%;
-  overflow: hidden;
+  
 }
 
 
@@ -22,3 +21,9 @@ h4 {
 h3 {
 	font-family: 'Permanent Marker';
 }
+
+.jumbotron{
+  opacity: 0.98;
+  padding-top: 10px;
+}
+
