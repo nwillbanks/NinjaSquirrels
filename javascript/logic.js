@@ -177,7 +177,7 @@ function playMusic(result, mp3Path){
   currTrack =   result[counter].title;
     getLyrics(currArtist, currTrack);
 
-
+    $("#currentlyPlaying").text("Currently Playing :" + currTrack + " by " + currArtist )
   };
 
   vid.onended = function() {
