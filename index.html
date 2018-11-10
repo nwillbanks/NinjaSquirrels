@@ -68,9 +68,11 @@
                 <a class="nav-link active" data-toggle="tab" href="#Playlist">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#Lyrics">Lyrics 1</a>
+                <a class="nav-link" id="lyrics-tab" data-toggle="tab" href="#Lyrics">Lyrics</a>
               </li>
-              
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#topCharts">Top Tracks</a>
+              </li>
             </ul>
           
             <!-- Tab panes -->
@@ -91,9 +93,24 @@
               </div>
               <div id="Lyrics" class="container tab-pane fade"><br>
                 <h3>Lyrics</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
+                <textarea id="lyrics_body" rows="20" cols="100" readonly>Lyrics Not found</textarea>
               
+              </div>
+               <div id="topCharts" class="container tab-pane fade"><br>
+                <div id="charts" class="container tab-pane active"><br>
+                <h3>Top Tracks</h3>
+                                <table class="table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Song Title</th>
+                                      <th scope="col">Artist</th>
+                                      <th scope="col">Album</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="chartsValues">
+                                  </tbody>
+                                </table>
+              </div>
             </div>
           </div>
         </div>

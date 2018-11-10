@@ -23,6 +23,8 @@ var connectionRef = database.ref(a);
 var connectedRef =  database.ref(".info/connected");
 var counter=0;
 var result;
+var currTrack="";
+var currArtist="";
 
 // connectedRef.on("value", function(snap){
 //   if (snap.val()){
@@ -32,6 +34,36 @@ var result;
     
 //   }
 // })
+
+getCharts();
+
+function getCharts(){
+   $.ajax({
+    headers : {"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS"},
+    url : "http://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=2538b3b1d406a3ddd6b776c21163d924",
+    method: "GET"
+
+  }).then(function(response){
+    var respObject = JSON.parse(response)
+    var size = respObject.message.body.track_list.length;
+    $('#chartsValues').empty()
+    for(var i=0; i < size; i++){
+      var trackName = respObject.message.body.track_list[i].track.track_name;
+      var album_name = respObject.message.body.track_list[i].track.album_name;
+       var artist_name = respObject.message.body.track_list[i].track.artist_name;
+
+       $("#chartsValues").append(("<tr> " +
+   " <td > " + trackName +" </td> "+
+   " <td> " + artist_name +" </td> "+
+   " <td> " + album_name +" </td> "
+   ));
+    }
+    
+
+  })
+
+}
+
 
 //grabbing the artist from html
 $("#add").on("click",function(event){
@@ -65,8 +97,30 @@ $("#add").on("click",function(event){
   
 })
 
+//grabbing the artist from html
+// $("#lyrics-tab").on("click",function(event){
+//   event.preventDefault()
+  
+  
+// })
 
 
+function getLyrics(currArtist, currTrack){
+  if(currArtist!=null && currArtist!="" && currTrack!=null && currTrack!=""){
+     $.ajax({
+    headers : {"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS"},
+    url : "http://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track="+currTrack+"&q_artist="+currArtist+"&apikey=2538b3b1d406a3ddd6b776c21163d924",
+    method: "GET"
+
+  }).then(function(response){
+    var respObject = JSON.parse(response)
+    var lyrics = respObject.message.body.lyrics.lyrics_body
+    console.log (lyrics)
+    $('#lyrics_body').empty()
+    $('#lyrics_body').append(lyrics)
+  })
+}
+}
 
 // deezer api
 function play(a , flag){
@@ -85,16 +139,17 @@ function play(a , flag){
   }).then(function(response){
     console.log(response)
     if(result == null){
-      result = response.data;
-      counter = 1;
+      result = response.data.slice(1);
+      counter = 0;
     }else{
-      counter = result.length+1;
+      //newCounter = result.length+1;
+
+      result = result.slice(0, counter).concat(response.data.slice(1)).concat(result.slice(counter));
+      counter;
       result = result.concat(response.data);
     }
   
-    var background = result[0].artist.picture_xl
-    $(".bg").css("background-image", 'url(' + background + ')')
-    
+  
     playMusic(result, result[counter].preview)
   // console.log (playlistId)
     //connectionRef.remove()
@@ -104,12 +159,27 @@ function play(a , flag){
 
 function playMusic(result, mp3Path){
   
-  music(mp3Path)
+
+  music(mp3Path);
 
   var vid = document.getElementById("myAudio");
   // vid.onplaying = function() {
   //   alert("The video is now playing");
   // };
+  vid.onplaying = function() {
+    // alert("The audio has ended");
+    //reading data from firebase
+      var background = result[counter].artist.picture_xl
+    $(".bg").css("background-image", 'url(' + background + ')')
+    
+
+      currArtist = result[counter].artist.name;
+  currTrack =   result[counter].title;
+    getLyrics(currArtist, currTrack);
+
+
+  };
+
   vid.onended = function() {
     // alert("The audio has ended");
     //reading data from firebase
