@@ -133,7 +133,7 @@ function play(a , flag){
 
   $.ajax({
     headers : {"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS"},
-    url : deezerApi,
+    url : 'https://cors-anywhere.herokuapp.com/' + deezerApi,
     method: "GET"
 
   }).then(function(response){
